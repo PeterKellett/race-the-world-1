@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+
+body {
+    background-color: #fafafa;
+}
+
+.header { 
+    padding-top: 20px;
+}
+
+h1 {
+    font-family: 'Permanent Marker', cursive;
+    color: red;
+    text-align: center;
+}
+
+h5 {
+    text-align: center;
+}
+
+p {
+    text-align: center;
+}
+
+.clues {
+    
+}
+
+.canvas {
+    background: url("../images/aroundTheWorld.jpg");
+    background-size: cover;
+    height: 600px;
+    width: 100%;
+    background-repeat: no-repeat;
+    border: solid black 2px;
+}
+
+button {
+    margin-top: 5px;
+} 
+
+a {
+    color: white;
+}
+
+a:link {
+    text-decoration: none;
+}
