@@ -25,16 +25,13 @@
       <div class="row">
         <div class="col-3 clues">
           <h1>Clues</h1>
+         {% for clue in clues %}
           <div class="card">
             <div class="card-body">
-              Clue 1: You are on O' Connell Street in Dublin.
+              {{clue.question}}
             </div>
           </div>
-          <div class="card">
-            <div class="card-body">
-              This is some text within a card body.
-            </div>
-          </div>
+          {% endfor %}
           <div class="card">
             <div class="card-body">
               This is some text within a card body.
