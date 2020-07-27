@@ -37,6 +37,22 @@ def stage_1():
                            clues=mongo.db.clues.find({"leg": "1"}).sort("step"),
                            teams=mongo.db.teams.find().sort("time"))
 
+
+@app.route("/update_time/<team_id>", methods=["POST"])
+def update_time(team_id):
+    mongo.db.teams.update(
+        {'_id': ObjectId(team_id)},
+        {'time': request.form.get('time')})
+    return redirect(url_for('stage_2'))
+
+
+@app.route('/stage_2')
+def stage_2():
+    return render_template("stage-2.html",
+                           clues=mongo.db.clues.find({"leg": "2"}).sort("step"),
+                           teams=mongo.db.teams.find().sort("time"))
+
+
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
             port=int(os.environ.get('PORT')),
