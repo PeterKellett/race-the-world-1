@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Race the world</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
@@ -11,49 +12,18 @@
       crossorigin="anonymous"
     />
     <!--Link to style.css-->
-	<link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" type="text/css" />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', filename='css/style.css')}}"
+      type="text/css"
+    />
   </head>
 
   <body>
     <div class="container-fluid">
       <h1 class="header">Peter Kelletts Round The World Race</h1>
-      <h5>Welcome to the Round The World Trivia Race game.</h5>
-      <p>
-        The object of this game is to solve the clues and complete each leg in
-        the fastest time possible.
-      </p>
-      <div class="row">
-        <div class="col-3 clues">
-          <h1>Clues</h1>
-         {% for clue in clues %}
-          <div class="card">
-            <div class="card-body">
-              {{clue.question}}
-            </div>
-          </div>
-          {% endfor %}
-          <div class="card">
-            <div class="card-body">
-              This is some text within a card body.
-            </div>
-          </div>
-        </div>
-
-        <div class="col-6 canvas">
-          {% block content %} {% endblock %}
-        </div>
-        <div class="col-3">
-          <h1>Leaderboard</h1>
-        </div>
-
-        <div class="container">
-          <div class="row justify-content-center">
-            <button type="button" class="btn btn-success">
-              <a href="leg1.html">Continue</a>
-            </button>
-          </div>
-        </div>
-      </div>
+      <h5>If we can't go to the world, let the world come to us</h5>
+      {% block content %} {% endblock %}
     </div>
     <script
       src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -70,5 +40,6 @@
       integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
       crossorigin="anonymous"
     ></script>
+    
   </body>
 </html>

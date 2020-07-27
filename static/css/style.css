@@ -8,7 +8,7 @@ body {
     padding-top: 20px;
 }
 
-h1 {
+h1, h2 {
     font-family: 'Permanent Marker', cursive;
     color: red;
     text-align: center;
@@ -22,13 +22,7 @@ p {
     text-align: center;
 }
 
-.clues {
-    
-}
-
 .canvas {
-    background: url("../images/aroundTheWorld.jpg");
-    background-size: cover;
     height: 600px;
     width: 100%;
     background-repeat: no-repeat;

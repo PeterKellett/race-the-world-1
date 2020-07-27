@@ -1,10 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
-{% extends 'base.html' %}  {% block content %}
-<p>home.html</p>
-    {% for clue in clues %}
-    {{ clue.question }}
-    {{ clue.answer }}
-    {% endfor %}
-{% endblock%}
+  {% extends 'base.html' %} {% block content %}
+  <p>
+    The object of this game is to solve the clues and complete each stage in the
+    fastest time possible.
+  </p>
+
+  <div class="row">
+    <div class="col-2 clues">
+      <h1>Clues</h1>
+      <div class="card">
+        <div class="card-body">
+          1) This is clue number 1
+          <form action="">
+            <input type="text" name="answer" /><input
+              type="submit"
+              value="Submit"
+              name="action"
+            />
+          </form>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          2) This is clue number 2
+          <form action="">
+            <input type="text" name="answer" /><input
+              type="submit"
+              value="Submit"
+              name="action"
+            />
+          </form>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          3) This is clue number 3
+          <form action="">
+            <input type="text" name="answer" /><input
+              type="submit"
+              value="Submit"
+              name="action"
+            />
+          </form>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          4) This is clue number 4
+          <form action="">
+            <input type="text" id="answer" name="answer" /><input
+              type="submit"
+              value="Submit"
+              name="action"
+            />
+          </form>
+        </div>
+      </div>
+    </div>
+    <div id="googleMap" class="col-8 canvas"></div>
+    <div class="col-2">
+      <div class="row justify-content-center">
+        <h1>Leaderboard</h1>
+      </div>
+      <div class="row justify-content-center">
+        <form action="{{ url_for('join_game') }}" method="POST">
+          <div class="input-field">
+            <i class="fa fa-address-book"></i>
+            <input
+              id="team_name"
+              name="team_name"
+              type="text"
+              class="validate"
+            />
+          </div>
+          <div id="" class="row justify-content-center">
+            <button type="submit" class="btn btn-success" name="action">
+              Join the game
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <script>
+    function myMap() {
+      var mapProp = {
+        center: new google.maps.LatLng(51.508742, -0.12085),
+        zoom: 2,
+      };
+      var map = new google.maps.Map(
+        document.getElementById("googleMap"),
+        mapProp
+      );
+      var dublin = { lat: 53.347234, lng: -6.259278 };
+      var marker = new google.maps.Marker({ position: dublin, map: map });
+    }
+  </script>
+
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBoU38Bi9RaqnX0R46KvqIBbWsTO0Mf6ms&callback=myMap"></script>
+  {% endblock%}
 </html>

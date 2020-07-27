@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% extends 'base.html' %} {% block content %}
+  <div class="row justify-content-center">
+    <h2>Stage 1</h2>
+  </div>
+  <div class="row">
+    <div class="col-3 clues">
+      <h1>Clues</h1>
+      {% for clue in clues %}
+
+      <div class="card">
+        <div class="card-body">
+          {{clue.step}}) {{clue.question}}
+          <form action="">
+            <input type="text" id="answer" name="answer" /><input
+              type="submit"
+              value="Submit"
+              name="action"
+            />
+          </form>
+        </div>
+      </div>
+
+      {% endfor %}
+    </div>
+
+    <div id="googleMap" class="col-6 canvas"></div>
+
+    <div class="col-3">
+      <h1>Leaderboard</h1>
+      {% for team in teams %}
+      <div class="card">
+        <div class="card-body">
+          <b>Team: </b>{{team.team_name.title()}} <b>Time: </b>{{team.time}}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  <script>
+    function myMap() {
+      var mapProp = {
+        center: new google.maps.LatLng(51.508742, -0.12085),
+        zoom: 2,
+      };
+      var map = new google.maps.Map(
+        document.getElementById("googleMap"),
+        mapProp
+      );
+      var dublin = { lat: 53.347234, lng: -6.259278 };
+      var marker = new google.maps.Marker({ position: dublin, map: map });
+    }
+  </script>
+
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBoU38Bi9RaqnX0R46KvqIBbWsTO0Mf6ms&callback=myMap"></script>
+  {% endblock%}
+</html>
