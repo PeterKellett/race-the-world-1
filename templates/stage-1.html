@@ -13,17 +13,13 @@
         <div class="card-body">
           {{clue.step}}) {{clue.question}}
           <form action="">
-            <input type="text" id="answer" name="answer" /><input
-              type="submit"
-              value="Submit"
-              name="action"
-            />
+            <input type="text" id="answer" name="answer" />
+            <input type="submit" value="Submit" name="action" />
           </form>
         </div>
       </div>
 
       {% endfor %}
-
     </div>
 
     <div id="googleMap" class="col-6 canvas"></div>

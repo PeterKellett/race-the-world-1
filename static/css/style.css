@@ -29,6 +29,15 @@ p {
     border: solid black 2px;
 }
 
+.canvas1 {
+    background-image: url('../images/aroundTheWorld.jpg');
+    background-size: cover;
+    height: 700px;
+    width: 100%;
+    background-repeat: no-repeat;
+    border: solid black 2px;
+}
+
 button {
     margin: 5px;
 } 
