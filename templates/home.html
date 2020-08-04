@@ -59,10 +59,19 @@
       </div>
     </div>
 
+    <div class="col-8 canvas1">
+      <div class="center">
+        <form action="{{ url_for('join_game') }}" method="POST" class="form-inline justify-content-center">
+          <label class="sr-only" for="inlineFormInputName2">Name</label>
+          <input id="team_name" name="team_name" type="text" class="validate" placeholder="Team name"/>
 
-    <div class="col-8 canvas1"></div>
-
-    
+          <button type="submit" class="btn btn-success mb-2">
+            <b>GO</b><i class="fas fa-angle-double-right"></i>
+          </button>
+          <h5>Enter your team name to go to the starting line!</h5>
+        </form>
+      </div>
+    </div>
     <div class="col-2">
       <div class="row justify-content-center">
         <h1>Leaderboard</h1>

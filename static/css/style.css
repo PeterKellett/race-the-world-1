@@ -38,14 +38,31 @@ p {
     border: solid black 2px;
 }
 
+.center {
+  margin: 0;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.center form {
+    padding-top: 10px;
+    border-radius: 10px;
+    height: 100px;
+    width: 500px;
+    background-color: yellow;
+}
+
 button {
     margin: 5px;
+    
 } 
 
 a {
     color: white;
 }
 
-a:link {
-    text-decoration: none;
-}
+
+
