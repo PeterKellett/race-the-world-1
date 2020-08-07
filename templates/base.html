@@ -4,7 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Race the world</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
@@ -25,11 +28,17 @@
   </head>
 
   <body>
-    <div class="container-fluid">
-      <h1 class="header">Peter Kelletts Round The World Race</h1>
-      <h5>If we can't go to the world, let the world come to us</h5>
-      {% block content %} {% endblock %}
-    </div>
+    
+      <div class="row">
+        <div class="col-12">
+          <h1 class="header">Peter Kelletts Round The World Race</h1>
+          <h5>
+            <em>"If we can't go to the world, let the world come to us"</em>
+          </h5>
+          {% block content %} {% endblock %}
+        </div>
+      </div>
+    
     <script
       src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
       integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
@@ -45,7 +54,9 @@
       integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
       crossorigin="anonymous"
     ></script>
-    <script src="https://kit.fontawesome.com/5522ae6586.js" crossorigin="anonymous"></script>
-    
+    <script
+      src="https://kit.fontawesome.com/5522ae6586.js"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
