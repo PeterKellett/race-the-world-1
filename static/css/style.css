@@ -29,12 +29,21 @@ p {
     text-align: center;
 }
 
+#start {
+    width: 100%;
+}
+
 #counter    {
+    display: none;
     padding-top: 10px;
     height: 50px;
     width: 50%;
     text-align: center;
     border: solid red 2px;
+}
+
+.clues .card {
+    display: none;
 }
 
 .canvas {

@@ -58,5 +58,20 @@
       src="https://kit.fontawesome.com/5522ae6586.js"
       crossorigin="anonymous"
     ></script>
+    <script type="text/javascript">
+    $(document).ready(function (clues) {
+      console.log("Stage-1 Document ready!");
+    
+      $("#start").click(function () {
+        $(this).hide();
+        $("#counter").show();
+        $(".card.clue").first().show();
+      });
+
+      $("#answer-button").click(function() {
+          $(".card.clue").next().show();
+      });
+    });
+  </script>
   </body>
 </html>

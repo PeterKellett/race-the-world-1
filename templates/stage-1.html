@@ -1,58 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-{% extends 'base.html' %} {% block content %}
-<div class="container-fluid">
-	<div class="row justify-content-center">
-		<h2>Welcome <span>{{ username }}</span> to stage 1</h2>
-	</div>
-	<div class="row">
-		<div class="col-3 clues">
-			<h1>Clues</h1>
+  {% extends 'base.html' %} {% block content %}
+  <div class="container-fluid">
+    <div class="row justify-content-center">
+      <h2>Welcome <span>{{ username }}</span> to stage 1</h2>
+    </div>
+    <div class="row">
+      <div class="col-3 clues">
+        <h1>Clues</h1>
 
-			<div class="row justify-content-center">
-				<button type="button" class="btn btn-success btn-lg" id="start">Start
-          
-        </button>
-				<div id="counter"></div>
+        <div class="row justify-content-center">
+          <button type="button" class="btn btn-success btn-lg" id="start">
+            Start
+          </button>
+          <div id="counter" display="none"></div>
+        </div>
 
-			</div>
+        <button id="stop">Stop</button>
 
-			<button id="stop">Stop</button>
-			<button id="start">Start</button>
-			{% for clue in clues %}
+        {% for clue in clues %}
 
-			<div class="card">
-				<div class="card-body">
-					{{clue.step}}) {{clue.question}}
-					<form action="">
-						<input type="text" id="answer" name="answer" />
-						<input type="submit" value="Submit" name="action" />
+        <div class="card clue">
+          <div class="card-body">
+            {{clue.step}}) {{clue.question}}
+            <form action="">
+              <input type="text" id="answer" name="answer" />
+              <button type="button" class="btn btn-success btn-lg" id="answer-button">
+            Submit
+          </button>
             </form>
-				</div>
-			</div>
+          </div>
+        </div>
 
-			{% endfor %}
-		</div>
+        {% endfor %}
+      </div>
 
-		<div id="googleMap" class="col-6 canvas"></div>
+      <div id="googleMap" class="col-6 canvas"></div>
 
-		<div class="col-3">
-			<h1>Leaderboard</h1>
-			{% for team in teams %}
-			<div class="card">
-				<div class="card-body">
-					<b>Team: </b>{{team.team_name.title()}} <b>Time: </b>{{team.time}}
-				</div>
-			</div>
-			{% endfor %}
-		</div>
-	</div>
-</div>
-<script>
-	function myMap() {
+      <div class="col-3">
+        <h1>Leaderboard</h1>
+        {% for team in teams %}
+        <div class="card">
+          <div class="card-body">
+            <b>Team: </b>{{team.team_name.title()}} <b>Time: </b>{{team.time}}
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  <script>
+    function myMap() {
       var mapProp = {
         center: new google.maps.LatLng(51.508742, -0.12085),
-        zoom: 2,
+        zoom: 3,
       };
       var map = new google.maps.Map(
         document.getElementById("googleMap"),
@@ -61,9 +62,9 @@
       var dublin = { lat: 53.347234, lng: -6.259278 };
       var marker = new google.maps.Marker({ position: dublin, map: map });
     }
-</script>
-<script>
-	var seconds = 0,
+  </script>
+  <script>
+    var seconds = 0,
       minutes = 00,
       hours = 00;
     var counter;
@@ -95,25 +96,24 @@
         hours++;
         minutes = 0;
       }
-     
+
       if (seconds < 10) seconds = "0" + seconds;
-      
+
       if (minutes < 10) {
-          counter.innerHTML = "Timer: " + hours + ":" + minutes + ":" + seconds;
+        counter.innerHTML = "Timer: " + hours + ":" + minutes + ":" + seconds;
       }
       if (minutes > 10) {
-          counter.innerHTML = "Timer: " + hours + ":" + minutes + ":" + seconds;
-      } 
-      
+        counter.innerHTML = "Timer: " + hours + ":" + minutes + ":" + seconds;
+      }
+
       if (counting) {
         seconds++;
         setTimeout(timer, 1000);
       }
     }
-</script>
+  </script>
+  
 
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBoU38Bi9RaqnX0R46KvqIBbWsTO0Mf6ms&callback=myMap">
-</script>
-{% endblock%}
-
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBoU38Bi9RaqnX0R46KvqIBbWsTO0Mf6ms&callback=myMap"></script>
+  {% endblock%}
 </html>
