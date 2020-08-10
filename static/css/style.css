@@ -1,15 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Permanent+Marker&display=swap');
 
 body {
     background-color: #fff;
     padding:0;
 }
 
-.header { 
+.header {
+    font-family: 'Anton', sans-serif; 
     padding: 20px;
     background-color: #fafafa;
     color: black;
+    text-align: center;
 }
+
 
 h1, h2 {
     font-family: 'Permanent Marker', cursive;
@@ -35,7 +38,7 @@ p {
 
 #counter    {
     display: none;
-    padding-top: 10px;
+    padding: 10px;
     height: 50px;
     width: 50%;
     text-align: center;
@@ -43,7 +46,17 @@ p {
 }
 
 .clues .card {
+    margin-top: 5px;
     display: none;
+}
+
+.correct {
+    display: none;
+    color: green;
+}
+
+.green {
+    border: 3px solid green;
 }
 
 .canvas {

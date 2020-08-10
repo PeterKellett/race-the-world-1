@@ -3,21 +3,14 @@
   {% extends 'base.html' %} {% block content %}
   <div class="container-fluid">
     <div class="row justify-content-center">
-      <h2>Welcome <span>{{ username }}</span> to stage 1</h2>
-    </div>
-    <div class="row">
       <div class="col-3 clues">
         <h1>Clues</h1>
-
         <div class="row justify-content-center">
           <button type="button" class="btn btn-success btn-lg" id="start">
             Start
           </button>
           <div id="counter" display="none"></div>
         </div>
-
-        <button id="stop">Stop</button>
-
         {% for clue in clues %}
 
         <div class="card clue">
@@ -25,17 +18,27 @@
             {{clue.step}}) {{clue.question}}
             <form action="">
               <input type="text" id="answer" name="answer" />
-              <button type="button" class="btn btn-success btn-lg" id="answer-button">
-            Submit
-          </button>
+              <button
+                type="button"
+                onclick="check_answer(question='{{clue.question}}', answer='{{clue.answer}}')"
+                class="btn btn-success btn-sm"
+                id="answer-button"
+              >
+                Submit
+              </button>
             </form>
           </div>
         </div>
 
         {% endfor %}
+        <button type="button" class="btn btn-success btn-lg" id="stop">
+          Stop
+        </button>
       </div>
-
-      <div id="googleMap" class="col-6 canvas"></div>
+      <div class="col-6">
+        <h2>Welcome <span>{{ username }}</span> to stage 1</h2>
+        <div id="googleMap" class="canvas"></div>
+      </div>
 
       <div class="col-3">
         <h1>Leaderboard</h1>
@@ -49,6 +52,7 @@
       </div>
     </div>
   </div>
+
   <script>
     function myMap() {
       var mapProp = {
@@ -65,8 +69,8 @@
   </script>
   <script>
     var seconds = 0,
-      minutes = 00,
-      hours = 00;
+      minutes = 0;
+
     var counter;
     var stop, start;
     var counting = false;
@@ -92,18 +96,14 @@
         minutes++;
         seconds = 0;
       }
-      if (minutes >= 60) {
-        hours++;
-        minutes = 0;
-      }
 
       if (seconds < 10) seconds = "0" + seconds;
 
       if (minutes < 10) {
-        counter.innerHTML = "Timer: " + hours + ":" + minutes + ":" + seconds;
+        counter.innerHTML = "Time: " + minutes + ":" + seconds;
       }
       if (minutes > 10) {
-        counter.innerHTML = "Timer: " + hours + ":" + minutes + ":" + seconds;
+        counter.innerHTML = "Time: " + minutes + ":" + seconds;
       }
 
       if (counting) {
@@ -111,8 +111,26 @@
         setTimeout(timer, 1000);
       }
     }
+
+    function check_answer(question, answer) {
+      console.log(question);
+      console.log(answer);
+      var user_answer = "";
+      user_answer = document.getElementById("answer").value.toLowerCase();
+      console.log("user_answer = " + user_answer);
+      if (user_answer == answer) {
+        console.log("Correct");
+        //document.getElementByClass("card").style.background-color = "green";
+        document.getElementById("answer").remove();
+        document.getElementById("answer-button").remove();
+        $(".card.clue:visible").last().css("background-color", "#c4f2b7");
+        $(".card.clue:visible").last().next(".clue:hidden").show();
+      } else {
+        console.log("Wrong");
+        $(".card.clue:visible").last().css("background-color", "#f09a9a");
+      }
+    }
   </script>
-  
 
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBoU38Bi9RaqnX0R46KvqIBbWsTO0Mf6ms&callback=myMap"></script>
   {% endblock%}

@@ -31,7 +31,7 @@
     
       <div class="row">
         <div class="col-12">
-          <h1 class="header">Peter Kelletts Round The World Race</h1>
+          <h1 class="header">Peter Kelletts Round The World Trivia Race Game</h1>
           <h5>
             <em>"If we can't go to the world, let the world come to us"</em>
           </h5>
@@ -60,7 +60,7 @@
     ></script>
     <script type="text/javascript">
     $(document).ready(function (clues) {
-      console.log("Stage-1 Document ready!");
+      console.log("Document ready!");
     
       $("#start").click(function () {
         $(this).hide();
@@ -68,9 +68,16 @@
         $(".card.clue").first().show();
       });
 
-      $("#answer-button").click(function() {
-          $(".card.clue").next().show();
+      $(".answer-button").click(function(data) {
+          console.log("Answer button clicked");
+          console.log(data.question);
+          //$('.container .row:visible').last().next('.row:hidden').slideDown();
+          $(this).hide();
+          
+          $(".card.clue:visible").last().css("background-color","#c4f2b7");
+          $(".card.clue:visible").last().next(".clue:hidden").show();
       });
+      
     });
   </script>
   </body>
