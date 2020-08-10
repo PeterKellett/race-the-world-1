@@ -57,7 +57,7 @@ p {
     border: solid red 2px;
 }
 
-.clues .card {
+.clues .card { 
     margin-top: 5px;
     display: none;
 }
