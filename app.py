@@ -56,7 +56,16 @@ def update_time(team_id):
 def stage_2():
     return render_template("stage-2.html",
                            clues=mongo.db.clues.find({"leg": "2"}).sort("step"),
-                           teams=mongo.db.teams.find().sort("time"))
+                           teams=mongo.db.teams.find().sort("time"),
+                           username=session["username"])
+
+
+@app.route('/stage_3')
+def stage_3():
+    return render_template("stage-3.html",
+                           clues=mongo.db.clues.find({"leg": "3"}).sort("step"),
+                           teams=mongo.db.teams.find().sort("time"),
+                           username=session["username"])
 
 
 if __name__ == '__main__':

@@ -36,6 +36,18 @@ p {
     width: 100%;
 }
 
+#stop {
+    width: 100%;
+    background-color: red;
+    margin-top: 5px;
+}
+
+#continue-button {
+    display: none;
+    /*width: 25%;*/
+    margin-top: 5px;
+}
+
 #counter    {
     display: none;
     padding: 10px;
