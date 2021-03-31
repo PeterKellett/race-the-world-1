@@ -28,6 +28,10 @@ h5 {
     text-align: center;
 }
 
+h5 em {
+    color: red;
+}
+
 p {
     text-align: center;
 }
