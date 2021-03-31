@@ -16,7 +16,7 @@
         <div class="card clue">
           <div class="card-body">
             {{clue.step}}) {{clue.question}}
-            <form action="">
+            
               <input type="text" id="answer" name="answer" />
               <button
                 type="button"
@@ -26,14 +26,14 @@
               >
                 Submit
               </button>
-            </form>
+            
           </div>
         </div>
 
         {% endfor %}
         <div class="row justify-content-center">
           <button type="button" class="btn btn-success btn-lg" id="stop">
-            Stop
+            Stop the clock
           </button>
         </div>
       </div>

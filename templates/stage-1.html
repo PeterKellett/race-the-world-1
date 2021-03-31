@@ -16,39 +16,40 @@
         <div class="card clue">
           <div class="card-body">
             {{clue.step}}) {{clue.question}}
-            <form action="">
-              <input type="text" id="answer" name="answer" />
-              <button
-                type="button"
-                onclick="check_answer(question='{{clue.question}}', answer='{{clue.answer}}')"
-                class="btn btn-success btn-sm"
-                id="answer-button"
-              >
-                Submit
-              </button>
-            </form>
+
+            <input type="text" id="answer" name="answer" />
+            <button
+              type="button"
+              onclick="check_answer(question='{{clue.question}}', answer='{{clue.answer}}')"
+              class="btn btn-success btn-sm"
+              id="answer-button"
+            >
+              Submit
+            </button>
           </div>
         </div>
 
         {% endfor %}
-        <div class="row justify-content-center">
-          <button type="button" class="btn btn-success btn-lg" id="stop">
-            Stop
-          </button>
+
+        <div class="card clue">
+          <div class="card-body">
+            <button type="button" class="btn btn-success btn-lg" id="stop">
+              Stop the clock
+            </button>
+          </div>
         </div>
       </div>
       <div class="col-6">
         <h2>Welcome <span>{{ username }}</span> to stage 1</h2>
-        
+
         <div id="googleMap" class="canvas"></div>
         <div class="row justify-content-center">
           <button
             type="button"
             class="btn btn-success btn-lg"
             id="continue-button"
-            
-          ><a href="{{ url_for('stage_2') }}">
-            Continue</a>
+          >
+            <a href="{{ url_for('stage_2') }}"> Continue</a>
           </button>
         </div>
       </div>
