@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Permanent+Marker&display=swap');
 
 body {
+    max-height: 100vH;
     background-color: #fff;
     padding:0;
 }
@@ -35,6 +36,26 @@ h5 em {
 p {
     text-align: center;
 }
+
+.zoom-window {
+    display: inline-block;
+}
+
+.game-board {
+    display: inline-block;
+    background-image: url('../images/aroundTheWorld.jpg');
+    background-size: contain;  
+    background-position: center;
+    background-repeat: no-repeat;
+    border: solid black 2px;
+    margin-bottom: 1rem;
+}
+
+.game-controls {
+    display: inline-block;
+}
+
+
 
 #start {
     width: 100%;
@@ -82,19 +103,12 @@ p {
     border: solid black 2px;
 }
 
-.canvas1 {
-    background-image: url('../images/aroundTheWorld.jpg');
-    background-size: cover;
-    height: 700px;
-    width: 100%;
-    background-repeat: no-repeat;
-    border: solid black 2px;
-}
+
 
 .center {
   margin: 0;
   position: absolute;
-  top: 20%;
+  top: 25%;
   left: 50%;
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);

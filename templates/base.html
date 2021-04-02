@@ -58,27 +58,7 @@
       src="https://kit.fontawesome.com/5522ae6586.js"
       crossorigin="anonymous"
     ></script>
-    <script type="text/javascript">
-    $(document).ready(function (clues) {
-      console.log("Document ready!");
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>   
     
-      $("#start").click(function () {
-        $(this).hide();
-        $("#counter").show();
-        $(".card.clue").first().show();
-      });
-
-      $(".answer-button").click(function(data) {
-          console.log("Answer button clicked");
-          console.log(data.question);
-          //$('.container .row:visible').last().next('.row:hidden').slideDown();
-          $(this).hide();
-          
-          $(".card.clue:visible").last().css("background-color","#c4f2b7");
-          $(".card.clue:visible").last().next(".clue:hidden").show();
-      });
-      
-    });
-  </script>
   </body>
 </html>

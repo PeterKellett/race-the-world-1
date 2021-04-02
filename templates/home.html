@@ -8,15 +8,11 @@
     </p>
 
     <div class="row">
-      <div class="col-2 clues">
-        
-        
-        
-        
-          
+      <div class="zoom-window">
+        <p>Zoom window</p>
       </div>
 
-      <div class="col-8 canvas1">
+      <div class="game-board">
         <div class="center">
           <form method="POST" class="form-inline justify-content-center">
             <label class="sr-only" for="inlineFormInputName2">Name</label>
@@ -35,29 +31,11 @@
           </form>
         </div>
       </div>
-      <div class="col-2">
-        <div class="row justify-content-center">
-          
-        </div>
-        <div class="row justify-content-center"></div>
+
+      <div class="game-controls">
+        <p>Game controls</p>
       </div>
     </div>
   </div>
-  <script>
-    function myMap() {
-      var mapProp = {
-        center: new google.maps.LatLng(51.508742, -0.12085),
-        zoom: 2,
-      };
-      var map = new google.maps.Map(
-        document.getElementById("googleMap"),
-        mapProp
-      );
-      var dublin = { lat: 53.347234, lng: -6.259278 };
-      var marker = new google.maps.Marker({ position: dublin, map: map });
-    }
-  </script>
-
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBoU38Bi9RaqnX0R46KvqIBbWsTO0Mf6ms&callback=myMap"></script>
   {% endblock%}
 </html>
