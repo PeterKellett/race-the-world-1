@@ -26,10 +26,19 @@ h2 span {
 }
 
 h5 {
-    text-align: center;
+    text-align: center
+}
+
+.zoom-window h5 {
+    color: #fafafa;
+}
+
+.game-controls h5 {
+    color: #000;
 }
 
 h5 em {
+    text-align: center;
     color: red;
 }
 
@@ -39,30 +48,33 @@ p {
 
 .zoom-window {
     display: inline-block;
+    background-image: url('../images/zoom-placeholder-image.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    margin: 5px;
 }
 
 .game-board {
     display: inline-block;
     background-image: url('../images/aroundTheWorld.jpg');
-    background-size: contain;  
-    background-position: center;
+    background-size: contain;     
     background-repeat: no-repeat;
-    border: solid black 2px;
     margin-bottom: 1rem;
 }
 
 .game-controls {
     display: inline-block;
+    margin: 5px;
 }
 
 
 
 #start {
-    width: 100%;
+    
 }
 
 #stop {
-    width: 100%;
+    
     background-color: red;
     margin-top: 5px;
 }
@@ -73,8 +85,8 @@ p {
     margin-top: 5px;
 }
 
-#counter    {
-    display: none;
+#timer    {
+    display: inline-block;
     padding: 10px;
     height: 50px;
     width: 50%;
@@ -96,19 +108,10 @@ p {
     border: 3px solid green;
 }
 
-.canvas {
-    height: 600px;
-    width: 100%;
-    background-repeat: no-repeat;
-    border: solid black 2px;
-}
-
-
-
 .center {
   margin: 0;
   position: absolute;
-  top: 25%;
+  top: 20%;
   left: 50%;
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
@@ -118,7 +121,6 @@ p {
     padding-top: 10px;
     border-radius: 10px;
     height: 100px;
-    width: 500px;
     background-color: lightblue;
 }
 

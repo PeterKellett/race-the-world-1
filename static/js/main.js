@@ -6,7 +6,7 @@ $(document).ready(function () {
       function setGridSize() {
           var windowWidth = window.innerWidth-50;
           var windowHeight = window.innerHeight;
-          var gameBoardWidth = windowHeight-50;
+          var gameBoardWidth = windowHeight-100;
           console.log("windowWidth = ", windowWidth);
           console.log("windowHeight = ", windowHeight);
           $('.zoom-window').height(gameBoardWidth).width((windowWidth-gameBoardWidth)/2);

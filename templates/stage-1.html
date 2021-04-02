@@ -2,70 +2,55 @@
 <html lang="en">
   {% extends 'base.html' %} {% block content %}
   <div class="container-fluid">
-    <div class="row justify-content-center">
-      <div class="col-3 clues">
-        <h1>Clues</h1>
-        <div class="row justify-content-center">
-          <button type="button" class="btn btn-success btn-lg" id="start">
+      <h2>Welcome <span>{{ username }}</span> to stage 1</h2>
+    <div class="row">
+        <div class="zoom-window">
+            <h5>Zoom window</h5>
+        </div>
+
+        <div id="googleMap" class="game-board"></div>
+
+        <div class="game-controls">
+            <h5>Clues</h5>
+            
+            <button type="button" class="btn btn-success btn-lg" id="start" onclick="start()">
             Start
-          </button>
-          <div id="counter" display="none"></div>
-        </div>
-        {% for clue in clues %}
-
-        <div class="card clue">
-          <div class="card-body">
-            {{clue.step}}) {{clue.question}}
-
-            <input type="text" id="answer" name="answer" />
-            <button
-              type="button"
-              onclick="check_answer(question='{{clue.question}}', answer='{{clue.answer}}')"
-              class="btn btn-success btn-sm"
-              id="answer-button"
-            >
-              Submit
             </button>
-          </div>
+            <div id="timer"></div>
+            {% for clue in clues %}
+            <div class="card clue">
+                <div class="card-body">
+                    {{clue.step}}) {{clue.question}}
+
+                    <input type="text" id="answer" name="answer" />
+                    <button
+                    type="button"
+                    onclick="check_answer(question='{{clue.question}}', answer='{{clue.answer}}')"
+                    class="btn btn-success btn-sm"
+                    id="answer-button"
+                    >
+                    Submit
+                    </button>
+                </div>
+            </div>
+
+            {% endfor %}
+
+           <div class="btn btn-danger" id="stop_timer" onclick="stop()">Stop time</div>
         </div>
-
-        {% endfor %}
-
-        <div class="card clue">
-          <div class="card-body">
-            <button type="button" class="btn btn-success btn-lg" id="stop">
-              Stop the clock
-            </button>
-          </div>
-        </div>
-      </div>
-      <div class="col-6">
-        <h2>Welcome <span>{{ username }}</span> to stage 1</h2>
-
-        <div id="googleMap" class="canvas"></div>
-        <div class="row justify-content-center">
-          <button
-            type="button"
-            class="btn btn-success btn-lg"
-            id="continue-button"
-          >
-            <a href="{{ url_for('stage_2') }}"> Continue</a>
-          </button>
-        </div>
-      </div>
-
-      <div class="col-3">
+    </div>
+    <div class="">
         <h1>Leaderboard</h1>
         {% for team in teams %}
         <div class="card">
-          <div class="card-body">
+            <div class="card-body">
             <b>Team: </b>{{team.team_name.title()}} <b>Time: </b>{{team.time}}
-          </div>
+            </div>
         </div>
         {% endfor %}
-      </div>
+        </div>
     </div>
-  </div>
+ 
 
   <script>
     function myMap() {
@@ -82,50 +67,35 @@
     }
   </script>
   <script>
-    var seconds = 0,
-      minutes = 0;
-
-    var counter;
-    var stop, start;
-    var counting = false;
-
-    window.onload = function () {
-      counter = document.getElementById("counter");
-      stop = document.getElementById("stop");
-      stop.onclick = function () {
-        counting = false;
-        $("#continue-button").show();
-      };
-      start = document.getElementById("start");
-      start.onclick = function () {
-        counting = true;
-        timer();
-      };
-
-      counting = false;
-      timer();
-    };
-
-    function timer() {
-      if (seconds >= 60) {
-        minutes++;
-        seconds = 0;
-      }
-
-      if (seconds < 10) seconds = "0" + seconds;
-
-      if (minutes < 10) {
-        counter.innerHTML = "Time: " + minutes + ":" + seconds;
-      }
-      if (minutes > 10) {
-        counter.innerHTML = "Time: " + minutes + ":" + seconds;
-      }
-
-      if (counting) {
-        seconds++;
-        setTimeout(timer, 1000);
-      }
+    var timerActive = false;
+    function start() {
+        if (timerActive === false) {
+            timerActive = true;
+            timer = setInterval(countTimer, 1000);
+        }       
+    } 
+    function stop() {
+        if(timerActive === true) {
+            timerActive = false;
+            clearInterval(timer);
+        }
     }
+
+    var totalSeconds = 0;
+    function countTimer() {
+        ++totalSeconds;
+        var hour = Math.floor(totalSeconds /3600);
+        var minute = Math.floor((totalSeconds - hour*3600)/60);
+        var seconds = totalSeconds - (hour*3600 + minute*60);
+        if(hour < 10)
+            hour = "0"+hour;
+        if(minute < 10)
+            minute = "0"+minute;
+        if(seconds < 10)
+            seconds = "0"+seconds;
+        document.getElementById("timer").innerHTML = hour + ":" + minute + ":" + seconds;
+    }
+
 
     function check_answer(question, answer) {
       console.log(question);
